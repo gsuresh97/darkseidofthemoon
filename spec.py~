@@ -54,7 +54,7 @@ def logscale_spec(spec, sr=44100, factor=20.):
 
 
 """ plot spectrogram"""
-def plotstft(audiopath, binsize=2**10, plotpath="test.png", colormap="jet"):
+def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="jet"):
     samplerate, samples = wav.read(audiopath)
     s = stft(samples, binsize)
     
