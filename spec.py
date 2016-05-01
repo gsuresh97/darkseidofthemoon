@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-#coding: utf-8
-""" This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-    Frank Zalkow, 2012-2013 """
+
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -54,7 +52,7 @@ def logscale_spec(spec, sr=44100, factor=20.):
 
 
 """ plot spectrogram"""
-def plotstft(audiopath, binsize=2**10, plotpath="test.png", colormap="jet"):
+def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="jet"):
     samplerate, samples = wav.read(audiopath)
     s = stft(samples, binsize)
     
@@ -78,7 +76,7 @@ def plotstft(audiopath, binsize=2**10, plotpath="test.png", colormap="jet"):
     plt.yticks(ylocs, ["%.02f" % freq[i] for i in ylocs])
     
     if plotpath:
-        plt.savefig(plotpath, bbox_inches="tight")
+        plt.savefig(plotpath, bbox_inches="tight", format='png', dpi=1000)
     else:
         plt.show()
         
