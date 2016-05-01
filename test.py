@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import pylab
 from pylab import *
 from scipy.io import wavfile
 
@@ -12,10 +13,10 @@ timeArray = arange(0, 5060.0, 1)
 timeArray = timeArray / sampFreq
 timeArray = timeArray * 1000  #scale to milliseconds
 
-#plot(timeArray, s1, color='k')
+plot(timeArray, s1, color='k')
 ylabel('Amplitude')
 xlabel('Time (ms)')
-
+ 
 n = len(s1) 
 p = fft(s1) # take the fourier transform 
 
@@ -39,3 +40,4 @@ freqArray = arange(0, nUniquePts, 1.0) * (sampFreq / n);
 plot(freqArray/1000, 10*log10(p), color='k')
 xlabel('Frequency (kHz)')
 ylabel('Power (dB)')
+show()

@@ -52,7 +52,7 @@ def logscale_spec(spec, sr=44100, factor=20.):
 
 
 """ plot spectrogram"""
-def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="jet"):
+def plotstft(audiopath, plotpath, binsize=2**10, colormap="jet"):
     samplerate, samples = wav.read(audiopath)
     s = stft(samples, binsize)
     
@@ -75,11 +75,17 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="jet"):
     ylocs = np.int16(np.round(np.linspace(0, freqbins-1, 10)))
     plt.yticks(ylocs, ["%.02f" % freq[i] for i in ylocs])
     
+    print(plotpath)
     if plotpath:
+<<<<<<< HEAD
         plt.savefig(plotpath, bbox_inches="tight", format='png', dpi=1000)
     else:
         plt.show()
+=======
+        plt.savefig(plotpath, bbox_inches="tight")
+    plt.show()
+>>>>>>> d78de3ed31b94e6f03794ac368829ecb57465ee5
         
     plt.clf()
 
-plotstft("1-05_Let_It_Go.wav")
+plotstft("1-05_Let_It_Go.wav", "image.png")
